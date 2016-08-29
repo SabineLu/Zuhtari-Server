@@ -1,0 +1,82 @@
+
+Spiel/App Name: Zuhtari
+
+Aufgaben/Ziele für das Masterprojekt:
+
+
+- Im M.Projekt soll der erste Prototype der App erstellt werden mit den folgenden Skelett funktionen, welche teilweise schon in der Umsetzung funktionenieren sollten:
+
+-> (Mittel) Einbau von Pflege der Monster (ala Tamagotchi reference zum besseren Verständnis was gemeint ist)
+-> (Niedrig)Auf Monster suche via GPS funktion
+-> (Mittel)Online Markplatz (Besonders wichtig fürs BigData)
+
+MUST DO:
+
+GUI					-> (Hoch) Bildgenerierung per Laufzeit (Es werden in der App nur Templates mitgeliefert welche die Funktion später zu neuen Bildern Zusammenfassen soll.)
+Online				-> (Hoch) Online Funktionalitäten: Login/Logoff/Registrieren/Daten speichern-updaten-löschen/abrufen von Analysen und Statistiken
+Online				-> (Hoch) Aufsetzen der DB Online (nach einiger Überlegung ist die Online Variante für dieses Endlos Spiel um einiges besser weil der Nutzer/Spieler so nicht an ein Bestimmtes Gerät gebunden ist)
+Doku 				-> (Hoch) Erstellen des Lastenheftes mit den Anforderungen der App sowie Gewichtungen der Funktionen
+Erste Testversuche 	-> (Mittel) Monster zucht
+
+
+MonoDB
+
+Game
+Zuhtari
+
+Game start with login screen
+Login
+Autologin 
+Register
+Forget Passwort
+Option
+Abmelden
+
+Game Menü Points are:
+
+Endless Mode (Online):
+
+
+Story Mode (Offline):
+-> Defined Quests and Story to follow (a bit alla pokemon(?))
+Game mechanics stay mostly the same as in the online game
+
+Options
+->Volume
+->Save Option (Auto, Manuel aka via diary), for Online its always auto as the game sends data on specific points out.
+
+
+Game Mechanics:
+
+Send Update (Save)
+-> Game logs the changes since last update seperate and sends them to the server
+-> game log is cleared once the save is done
+
+Load Information
+-> for endless game the user loads the information
+
+GPS
+-> Game logs home coordinate
+-> updates coordinate pos of the player, if player is outside of their home, the game makes random encounter which can bring a) new items or b) monster find
+
+Picture Generator
+->new Monster breed creates picture
+->overlay maps of png's -- create new bitmap which is saved on device
+
+menu -> login -> online mode
+
+online mode -> (first time) welcome layer
+world map -> village, farm, forrest
+farm map ->house, garden, monster home, mine , monster next
+village map -> shops , map
+forrest ->
+
+-------------------------------------------------------------------------
+Place Holder Graphic
+
+BGs Static
+
+Vector
+Items
+NPCs
+Monster

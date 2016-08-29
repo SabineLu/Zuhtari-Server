@@ -1,0 +1,732 @@
+<dataSource name="MySQL - @localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="information_schema" />
+    <schema id="2" name="mysql" />
+    <schema id="3" name="performance_schema" />
+    <schema id="4" name="zuhtariserver">
+      <visible>1</visible>
+    </schema>
+    <table id="5" parent="4" name="Avatar" />
+    <table id="6" parent="4" name="Color">
+      <comment>Color Table</comment>
+    </table>
+    <table id="7" parent="4" name="Gen1 Pattern">
+      <comment>Genetic 1 Pattern Table.</comment>
+    </table>
+    <table id="8" parent="4" name="Gen2 Pattern">
+      <comment>Ge</comment>
+    </table>
+    <table id="9" parent="4" name="Gen3 Pattern" />
+    <table id="10" parent="4" name="Inventory" />
+    <table id="11" parent="4" name="Item" />
+    <table id="12" parent="4" name="Market" />
+    <table id="13" parent="4" name="Monster" />
+    <table id="14" parent="4" name="MonsterCategory" />
+    <table id="15" parent="4" name="User" />
+    <column id="16" parent="5" name="ID">
+      <comment>Avatar ID</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="17" parent="5" name="UserId">
+      <comment>Owner of the Avatar belongs to.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="18" parent="5" name="Name">
+      <comment>Name of the Avatar</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <column id="19" parent="5" name="Birthday">
+      <comment>Birthday of the Avatar (Day / Month)</comment>
+      <mandatory>1</mandatory>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="20" parent="5" name="Gender">
+      <comment>Gender of the Avatar. M=Male, F=Female, A = Agender</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(1)|0</data-type>
+      <default-expression>'A'</default-expression>
+    </column>
+    <column id="21" parent="5" name="HairColor">
+      <comment>Color of the avatar hair.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>'1'</default-expression>
+    </column>
+    <column id="22" parent="5" name="EyeColor">
+      <comment>Color of the Avatar eyes.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>'1'</default-expression>
+    </column>
+    <column id="23" parent="5" name="SkinColor">
+      <comment>Color of the Avatar skin.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>'1'</default-expression>
+    </column>
+    <column id="24" parent="5" name="Money">
+      <comment>Amount of money (coins) the Avatar has in game.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(8)|0</data-type>
+      <default-expression>'0'</default-expression>
+    </column>
+    <column id="25" parent="5" name="FarmName">
+      <comment>Name of the Farm in game the avatar lives on.</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="26" parent="5" name="Status">
+      <comment>Shows state of the avatar if it is Active or inactive. (inactive avatars delete after some time (? still in concept))</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(10)|0</data-type>
+      <default-expression>'active'</default-expression>
+    </column>
+    <column id="27" parent="5" name="StatusChangeDate">
+      <comment>Timestamp to show when the Status of a avatar was changed.</comment>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <index id="28" parent="5" name="ID">
+      <columns>ID</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <index id="29" parent="5" name="UserID">
+      <columns>UserId</columns>
+      <desc-columns />
+    </index>
+    <key id="30" parent="5" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="31" parent="5" name="ID">
+      <columns>ID</columns>
+      <underlying-index>ID</underlying-index>
+    </key>
+    <column id="32" parent="6" name="ID">
+      <comment>Color ID</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="33" parent="6" name="Name">
+      <comment>Name of the Color</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(25)|0</data-type>
+    </column>
+    <column id="34" parent="6" name="RGBCode">
+      <comment>Hashcode of the Color</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(6)|0</data-type>
+    </column>
+    <index id="35" parent="6" name="ID">
+      <columns>ID</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <index id="36" parent="6" name="Name">
+      <columns>Name</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <index id="37" parent="6" name="RGBCode">
+      <columns>RGBCode</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <key id="38" parent="6" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="39" parent="6" name="ID">
+      <columns>ID</columns>
+      <underlying-index>ID</underlying-index>
+    </key>
+    <key id="40" parent="6" name="Name">
+      <columns>Name</columns>
+      <underlying-index>Name</underlying-index>
+    </key>
+    <key id="41" parent="6" name="RGBCode">
+      <columns>RGBCode</columns>
+      <underlying-index>RGBCode</underlying-index>
+    </key>
+    <column id="42" parent="7" name="ID">
+      <comment>Id of the Gen1 Patterm.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="43" parent="7" name="Name">
+      <comment>Name of the Patter.</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="44" parent="7" name="Description">
+      <comment>Description of the Pattern</comment>
+      <data-type>mediumtext|0</data-type>
+    </column>
+    <index id="45" parent="7" name="ID">
+      <columns>ID</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <index id="46" parent="7" name="Name">
+      <columns>Name</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <key id="47" parent="7" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="48" parent="7" name="ID">
+      <columns>ID</columns>
+      <underlying-index>ID</underlying-index>
+    </key>
+    <key id="49" parent="7" name="Name">
+      <columns>Name</columns>
+      <underlying-index>Name</underlying-index>
+    </key>
+    <column id="50" parent="8" name="ID">
+      <comment>Gen2 Patter ID</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="51" parent="8" name="Name">
+      <comment>Name of the Pattern</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="52" parent="8" name="Description">
+      <comment>Description of the Pattern</comment>
+      <data-type>mediumtext|0</data-type>
+    </column>
+    <index id="53" parent="8" name="ID">
+      <columns>ID</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <index id="54" parent="8" name="Name">
+      <columns>Name</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <key id="55" parent="8" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="56" parent="8" name="ID">
+      <columns>ID</columns>
+      <underlying-index>ID</underlying-index>
+    </key>
+    <key id="57" parent="8" name="Name">
+      <columns>Name</columns>
+      <underlying-index>Name</underlying-index>
+    </key>
+    <column id="58" parent="9" name="ID">
+      <comment>Gen3 Pattern ID</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="59" parent="9" name="Name">
+      <comment>Name of the Pattern</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="60" parent="9" name="Description">
+      <comment>Description of the Pattern</comment>
+      <data-type>mediumtext|0</data-type>
+    </column>
+    <index id="61" parent="9" name="ID">
+      <columns>ID</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <index id="62" parent="9" name="Name">
+      <columns>Name</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <key id="63" parent="9" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="64" parent="9" name="ID">
+      <columns>ID</columns>
+      <underlying-index>ID</underlying-index>
+    </key>
+    <key id="65" parent="9" name="Name">
+      <columns>Name</columns>
+      <underlying-index>Name</underlying-index>
+    </key>
+    <column id="66" parent="10" name="ID">
+      <comment>ID of the Inventory</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="67" parent="10" name="AvatarID">
+      <comment>Inventory Owner.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="68" parent="10" name="ItemID">
+      <comment>Item in the Inventory.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="69" parent="10" name="ItemCount">
+      <comment>Total Count of specific Item.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="70" parent="10" name="AvatarID">
+      <columns>AvatarID</columns>
+      <desc-columns />
+    </index>
+    <index id="71" parent="10" name="ID">
+      <columns>ID</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <index id="72" parent="10" name="ID_2">
+      <columns>ID</columns>
+      <desc-columns />
+    </index>
+    <index id="73" parent="10" name="ItemID">
+      <columns>ItemID</columns>
+      <desc-columns />
+    </index>
+    <key id="74" parent="10" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="75" parent="10" name="ID">
+      <columns>ID</columns>
+      <underlying-index>ID</underlying-index>
+    </key>
+    <foreign-key id="76" parent="10" name="FK_Inventory_Avatar">
+      <columns>AvatarID</columns>
+      <ref-key>~.Avatar.ID</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="77" parent="10" name="FK_Inventory_Item">
+      <columns>ItemID</columns>
+      <ref-key>~.Item.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="78" parent="11" name="ID">
+      <comment>ID of the Item.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="79" parent="11" name="Name">
+      <comment>Name of the Item</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="80" parent="11" name="Description">
+      <comment>Description of the Item.</comment>
+      <data-type>varchar(100)|0</data-type>
+    </column>
+    <column id="81" parent="11" name="Value">
+      <comment>Basic set price of the Item.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <default-expression>'0'</default-expression>
+    </column>
+    <key id="82" parent="11" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="83" parent="12" name="ID">
+      <comment>Id of the Market Entry.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="84" parent="12" name="SellerUserID">
+      <comment>Seller of the Entry.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="85" parent="12" name="MonsterID">
+      <comment>Monster offered for selling.</comment>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="86" parent="12" name="ItemID">
+      <comment>Item offered for selling.</comment>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="87" parent="12" name="ItemsForSale">
+      <comment>sum of items. (Monster count is always 1, Item can vary)</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="88" parent="12" name="PricePerItem">
+      <comment>Price per item.</comment>
+      <mandatory>1</mandatory>
+      <data-type>decimal(10,2)|0</data-type>
+    </column>
+    <column id="89" parent="12" name="SellStart">
+      <comment>Start date on which User has put the Entry for sale.</comment>
+      <mandatory>1</mandatory>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="90" parent="12" name="SellEnd">
+      <comment>Set ending of the sale. [can be up between 1-7 days]</comment>
+      <mandatory>1</mandatory>
+      <data-type>date|0</data-type>
+    </column>
+    <column id="91" parent="12" name="BuyerUserId">
+      <comment>Buyer of the Entry</comment>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="92" parent="12" name="BuyerUserId">
+      <columns>BuyerUserId</columns>
+      <desc-columns />
+    </index>
+    <index id="93" parent="12" name="ItemID">
+      <columns>ItemID</columns>
+      <desc-columns />
+    </index>
+    <index id="94" parent="12" name="MonsterID">
+      <columns>MonsterID</columns>
+      <desc-columns />
+    </index>
+    <index id="95" parent="12" name="SellerUserID">
+      <columns>SellerUserID</columns>
+      <desc-columns />
+    </index>
+    <key id="96" parent="12" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="97" parent="12" name="FK_Market_SellerUser">
+      <columns>SellerUserID</columns>
+      <ref-key>~.User.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="98" parent="12" name="FK_Market_Monster">
+      <columns>MonsterID</columns>
+      <ref-key>~.Monster.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="99" parent="12" name="FK_Market_Item">
+      <columns>ItemID</columns>
+      <ref-key>~.Item.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="100" parent="12" name="FK_Market_BuyerUser">
+      <columns>BuyerUserId</columns>
+      <ref-key>~.User.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="101" parent="13" name="ID">
+      <comment>ID of the Monster.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="102" parent="13" name="Name">
+      <comment>Name of the Monster.</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+      <default-expression>'Robin'</default-expression>
+    </column>
+    <column id="103" parent="13" name="OwnerID">
+      <comment>Owner of the Monster</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="104" parent="13" name="HungerLevel">
+      <comment>Shows how hungry the monster is. [1: starving till 10: satistfied (not hungry)]</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(2) unsigned|0</data-type>
+      <default-expression>'5'</default-expression>
+    </column>
+    <column id="105" parent="13" name="ThirstLevel">
+      <comment>Shows how thirsty the monster is. [1: dehydrated till 10: satistfied (not thirsty)]</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(2) unsigned|0</data-type>
+      <default-expression>'5'</default-expression>
+    </column>
+    <column id="106" parent="13" name="LoyalLevel">
+      <comment>Shows level of loyality towards the owner. [0: wary to 10: loyal]</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>'0'</default-expression>
+    </column>
+    <column id="107" parent="13" name="GeneticInformation">
+      <comment>During the breeding certain Genetic Information will be saved in the gens for the next breeding outcome of this Monster.</comment>
+      <mandatory>1</mandatory>
+      <data-type>char(255)|0</data-type>
+    </column>
+    <column id="108" parent="13" name="Generation">
+      <comment>Shows Generation this Monster belongs to.</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(4)|0</data-type>
+      <default-expression>'1'</default-expression>
+    </column>
+    <column id="109" parent="13" name="Parent1Id">
+      <comment>Parent of the Monster.</comment>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="110" parent="13" name="Parent2Id">
+      <comment>Parent of the Monster.</comment>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="111" parent="13" name="Hatchday">
+      <comment>Day the Monster hatched from the egg.</comment>
+      <data-type>timestamp|0</data-type>
+    </column>
+    <column id="112" parent="13" name="IsForSale">
+      <comment>Was the Monster put up for Sale?</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1)|0</data-type>
+    </column>
+    <column id="113" parent="13" name="IsAway">
+      <comment>Is the Monster currenly on a walk?</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(1)|0</data-type>
+    </column>
+    <column id="114" parent="13" name="Stage">
+      <comment>Shows stage of the Monster [0: Egg / 1: Hatchling / 2: Young Adult / 3: Adult]</comment>
+      <mandatory>1</mandatory>
+      <data-type>tinyint(3) unsigned|0</data-type>
+      <default-expression>'0'</default-expression>
+    </column>
+    <column id="115" parent="13" name="MonsterTypeID">
+      <comment>Genetics of the Monster</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="116" parent="13" name="Comment">
+      <comment>Small Information Text the User can add to the Monster</comment>
+      <data-type>longtext|0</data-type>
+    </column>
+    <index id="117" parent="13" name="ID">
+      <columns>ID</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <index id="118" parent="13" name="MonsterTypeID">
+      <columns>MonsterTypeID</columns>
+      <desc-columns />
+    </index>
+    <index id="119" parent="13" name="OwnerID">
+      <columns>OwnerID</columns>
+      <desc-columns />
+    </index>
+    <index id="120" parent="13" name="Parent1ID">
+      <columns>Parent1Id</columns>
+      <desc-columns />
+    </index>
+    <index id="121" parent="13" name="Parent2ID">
+      <columns>Parent2Id</columns>
+      <desc-columns />
+    </index>
+    <key id="122" parent="13" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="123" parent="13" name="ID">
+      <columns>ID</columns>
+      <underlying-index>ID</underlying-index>
+    </key>
+    <foreign-key id="124" parent="13" name="Monster_ibfk_3">
+      <columns>OwnerID</columns>
+      <ref-key>~.Avatar.ID</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="125" parent="13" name="Monster_ibfk_1">
+      <columns>Parent1Id</columns>
+      <ref-key>ID</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="126" parent="13" name="Monster_ibfk_2">
+      <columns>Parent2Id</columns>
+      <ref-key>ID</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="127" parent="13" name="Monster_ibfk_4">
+      <columns>MonsterTypeID</columns>
+      <ref-key>~.MonsterCategory.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="128" parent="14" name="ID">
+      <comment>Monster Category Type</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="129" parent="14" name="Gen1ID">
+      <comment>First Genetic String ID.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="130" parent="14" name="Gen2ID">
+      <comment>Second Genetic String Pattern.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="131" parent="14" name="Gen3ID">
+      <comment>Third Genetic String Pattern.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="132" parent="14" name="Gen1ColorID">
+      <comment>First Genetic String Color.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="133" parent="14" name="Gen2ColorID">
+      <comment>Second Genetic String Color.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="134" parent="14" name="Gen3ColorID">
+      <comment>Third Genetic String Color.</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <index id="135" parent="14" name="Gen1ColorID">
+      <columns>Gen1ColorID</columns>
+      <desc-columns />
+    </index>
+    <index id="136" parent="14" name="Gen1ID">
+      <columns>Gen1ID</columns>
+      <desc-columns />
+    </index>
+    <index id="137" parent="14" name="Gen2ColorID">
+      <columns>Gen2ColorID</columns>
+      <desc-columns />
+    </index>
+    <index id="138" parent="14" name="Gen2ID">
+      <columns>Gen2ID</columns>
+      <desc-columns />
+    </index>
+    <index id="139" parent="14" name="Gen3ColorID">
+      <columns>Gen3ColorID</columns>
+      <desc-columns />
+    </index>
+    <index id="140" parent="14" name="Gen3ID">
+      <columns>Gen3ID</columns>
+      <desc-columns />
+    </index>
+    <index id="141" parent="14" name="ID">
+      <columns>ID</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <key id="142" parent="14" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="143" parent="14" name="ID">
+      <columns>ID</columns>
+      <underlying-index>ID</underlying-index>
+    </key>
+    <foreign-key id="144" parent="14" name="FK_MonsterCateg_Patt1">
+      <columns>Gen1ID</columns>
+      <ref-key>~.Gen1\u0020Pattern.ID</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="145" parent="14" name="FK_MonsterCateg_Patt2">
+      <columns>Gen2ID</columns>
+      <ref-key>~.Gen2\u0020Pattern.ID</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="146" parent="14" name="FK_MonsterCateg_Patt3">
+      <columns>Gen3ID</columns>
+      <ref-key>~.Gen3\u0020Pattern.ID</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="147" parent="14" name="FK_MonsterCateg_Color1">
+      <columns>Gen1ColorID</columns>
+      <ref-key>~.Color.ID</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="148" parent="14" name="FK_MonsterCateg_Color2">
+      <columns>Gen2ColorID</columns>
+      <ref-key>~.Color.ID</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="149" parent="14" name="FK_MonsterCateg_Color3">
+      <columns>Gen3ColorID</columns>
+      <ref-key>~.Color.ID</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="150" parent="15" name="ID">
+      <comment>Id des Users</comment>
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="151" parent="15" name="Email">
+      <comment>Email des Nutzers</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="152" parent="15" name="Name">
+      <comment>Nickname des Users</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="153" parent="15" name="Password">
+      <comment>Password des Nutzers</comment>
+      <mandatory>1</mandatory>
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="154" parent="15" name="JoinDate">
+      <comment>Date the User made their account.</comment>
+      <mandatory>1</mandatory>
+      <data-type>date|0</data-type>
+    </column>
+    <index id="155" parent="15" name="Email">
+      <columns>Email
+Name</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <index id="156" parent="15" name="ID">
+      <columns>ID</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <key id="157" parent="15" name="PRIMARY">
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <key id="158" parent="15" name="ID">
+      <columns>ID</columns>
+      <underlying-index>ID</underlying-index>
+    </key>
+    <key id="159" parent="15" name="Email">
+      <columns>Email
+Name</columns>
+      <underlying-index>Email</underlying-index>
+    </key>
+  </database-model>
+</dataSource>
