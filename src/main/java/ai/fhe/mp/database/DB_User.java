@@ -33,7 +33,13 @@ public class DB_User
         List userList = session.createQuery( "from User U where U.id is "+_ID ).list();
         transaction.commit();
         User user = (User) userList.get(0);
-        return Response.ok().entity(user).build();
+        Response response;
+        if (user != null)
+            response = Response.ok().entity(user).build();
+        else
+            response = Response.ok().type("No User Found.").build();
+
+        return response;
     }
 
     /**
